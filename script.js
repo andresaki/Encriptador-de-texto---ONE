@@ -9,7 +9,7 @@ let h3_salida_de_texto = document.getElementById('salida_de_texto');
 function encriptar() {
     ocultar_contenido();
 
-    let entrada_de_texto = textArea.value;
+    let entrada_de_texto = procesarTexto(textArea.value)
     let salidad_texto = "";
 
     for (let i = 0; i < entrada_de_texto.length; i++) {
@@ -40,7 +40,7 @@ function encriptar() {
 function desencriptar() {
     ocultar_contenido();
 
-    let texto = textArea.value;
+    let texto = procesarTexto(textArea.value)
     let salidad_texto = "";
 
 
@@ -93,13 +93,37 @@ function copiar() {
     tarjetica.style.display = "block";
 
     // Ocultar la tarjetica después de 3 segundos (3000 milisegundos)
-    setTimeout(function() {
+    setTimeout(function () {
+        tarjetica.innerHTML = "¡ Texto copiado !";
         tarjetica.style.display = "none";
     }, 2000);
 
 }
 
+function procesarTexto(texto) {
+    // Eliminar acentos y caracteres especiales
+    var textoProcesado = texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
+    // Convertir a minúsculas
+    textoProcesado = textoProcesado.toLowerCase();
+
+    // Verificar si el texto original es diferente al procesado
+    if (texto !== textoProcesado) {
+
+        // Mostrar la tarjetica temporal
+        var tarjetica = document.getElementById("tarjetica");
+        tarjetica.innerHTML = "El texto contenia caracteres especiales , mayusculas o acentos";
+        tarjetica.style.display = "block";
+
+        // Ocultar la tarjetica después de 3 segundos (3000 milisegundos)
+        setTimeout(function () {
+            tarjetica.style.display = "none";
+        }, 4000);
+
+    }
+
+    return textoProcesado;
+}
 
 function ocultar_contenido() {
     if (img_muñeco.parentNode && text_muñeco.parentNode) {
