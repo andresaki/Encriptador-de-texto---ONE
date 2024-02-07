@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 1</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+    <header class="espaciado">
+        <img src="img/Logologo.svg" alt="logo">
+    </header>
+
+    <section id="seccion-uno" class="espaciado flex-column-between">
+        <textarea class="fuente-texto-entrada" name="" id="entrada_de_texto" cols="30" rows="10"  placeholder="ingrese el texto aqui"></textarea>
+
+        <div>
+            <span id="advertencia" class="parrafo"><img src="img/Groupinfo.svg" alt=""> <span class="class="parrafo"">  Solo letras minusculas y sin acentos</span> </span> 
+
+            <div class="botones">
+                <button onclick="encriptar()" id="btn_encriptar" class="boton btn-primario">Encriptar</button>
+                <button onclick="desencriptar()" id="btn_desencriptar" class="boton btn-secundario">Desencriptar</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="seccion-dos" class="espaciado flex-column-between espaciado-32">
+        
+        <div id="ver-texto" class="espaciado-32 flex-column-between">
+            <h3 id="salida_de_texto">h</h3>
+            <button onclick="copiar()" id="btn_copiar" class="boton btn-secundario"> Copiar </button>
+        </div>
+
+
+        <img id="img_muñeco" src="img/Muñecomuñeco.svg" alt="">
+
+        <div id="text-no-encontrado">
+            <h2>Ningún mensaje fue encontrado</h2>
+            <p class="parrafo">Ingresa el texto que desees encriptar o desencriptar.</p>
+        </div>
+    </div>
+
+    <div id="tarjetica" class="tarjetica">¡Texto copiado!</div>
+
+    
+</body>
+</html>
